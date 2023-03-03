@@ -2,21 +2,44 @@ import java.util.Scanner;
 
 class product
 {
-    void inputofproducts()
+    Scanner sc = new Scanner(System.in);
+    int n;
+    String[] name;
+    int quantity[];
+    int price[];
+    void numberofproducts()
+    {
+        System.out.println("Enter number of products");
+        n = sc.nextInt();
+        name=new String[n];
+        quantity=new int[n];
+        price = new int[n];
+    }
+    void products()
    {
-       Scanner sc = new Scanner(System.in);
-       System.out.println("Enter name of Product");
-       String name = sc.next();
-       System.out.println("enter quantity of Product");
-       int quantity = sc.nextInt();
-       System.out.println("enter price of product");
-       int price = sc.nextInt() ;
-       String abx = (name+quantity+price);
-       System.out.println("Entered Product is:"+name);
-       System.out.println("Entered Quantity is:"+quantity);
-       System.out.println("Entered Price is:"+price);
-
-
+       for (int i=0;i<n;i++)
+       {
+           System.out.println("Enter name of Product");
+            name[i] = sc.next();
+       }
+       for (int i=0;i<n;i++)
+       {
+           System.out.println("enter quantity for "+name[i] + ":");
+           quantity[i]= sc.nextInt();
+       }
+       for (int i=0;i<n;i++)
+       {
+           System.out.println("enter price for "+name[i] + ":");
+           price[i]= sc.nextInt();
+       }
+   }
+   void output()
+   {
+       for (int i=0;i<n;i++)
+       {
+           System.out.println(i+")"+"Product::"+"Quantity::"+"Price");
+           System.out.println(name[i]+"::"+quantity[i]+"::"+price[i]);
+       }
    }
 
 }
@@ -26,16 +49,24 @@ class mainmethod extends product
     {
         mainmethod p = new mainmethod();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number of Products");
-        int n = sc.nextInt();
-        for (int i=0;i<n;i++)
+        System.out.println("Please Enter your Name");
+        String Name = sc.next();
+        System.out.println("Please Enter your Mobile no");
+        long no = sc.nextLong();
+        System.out.println("please enter 1 for male and 0 for female");
+        int g = sc.nextInt();
+        p.numberofproducts();
+        p.products();
+        p.output();
+        if(g==1)
         {
-            p.inputofproducts();
+            System.out.println("Thank you,Mr." + Name + " for shopping with us");
         }
-        for (int i=0;i<n;i++)
+        else
         {
-            System.out.println(p.inputofproducts());
+            System.out.println("Thank you,Mrs." + Name + " for shopping with us");
         }
+
 
 
     }
